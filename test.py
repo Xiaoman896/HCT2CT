@@ -26,7 +26,7 @@ def main():
     time_git_st = time.time()
     Convertedproj = hct2ct(Np, Nr, linear_step, pixel_size, inputpath, mispixels, k1, corrpixelsv)
     projname = outputpath + "tomo_" + str("%05d" % (k1)) + ".tif"
-    tifffile.imsave(projname, Convertedproj)  # save a image from a result
+    tifffile.imsave(projname, Convertedproj)  # save an image from a result
 
     print('Elapse: %.4fs' % (time.time() - time_git_st))
     print("It's done!")
