@@ -9,18 +9,18 @@ from hct2ct import hct2ct
 import tifffile
 
 def main():
-    Np = 3000
-    Nr = 3
-    linear_step = 0.001
-    pixel_size = 0.013
+    Np = 3000 ## number of projection per rotation (360 degrees)
+    Nr = 3 ## number of rotation
+    linear_step = 0.001 ## linear step, uint of mm
+    pixel_size = 0.013 ## linear step, uint of mm
     inputpath ='tomo/'
     outputpath = 'tomo-converted/'
     if os.path.isdir(outputpath):
         shutil.rmtree(outputpath)
-    os.mkdir(outputpath) # to save temp output
+    os.mkdir(outputpath) # to save output
 
-    mispixels = 18 # allow to maunally correct the mispixels horizontally
-    corrpixelsv = 20 # corret the error of white line; if there are missing lines appear, change the number bigger
+    mispixels = 18 # allow to maunally correct the mispixels horizontally, uint of pixel
+    corrpixelsv = 20 # corret the white line (due to white edge of HCT projection); if there are white lines present, change the number bigger or smaller, uint of pixel
     k1 = 10 # test projection index of virtual CT
 
     time_git_st = time.time()
