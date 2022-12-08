@@ -15,13 +15,13 @@ def main():
     pixel_size = 0.013 ## linear step, uint of mm
     inputpath ='tomo/'
     outputpath = 'tomo-converted/'
+    mispixels = 18 # allow to maunally correct the mispixels horizontally, uint of pixel
+    corrpixelsv = 20 # corret the white line (due to white edge of HCT projection); if there are white lines present, change the number bigger or smaller, uint of pixel
+    
     if os.path.isdir(outputpath):
         shutil.rmtree(outputpath)
     os.mkdir(outputpath) # to save output
-
-    mispixels = 18 # allow to maunally correct the mispixels horizontally, uint of pixel
-    corrpixelsv = 20 # corret the white line (due to white edge of HCT projection); if there are white lines present, change the number bigger or smaller, uint of pixel
-
+    
     for k1 in range(int(Np/2)):
         time_git_st = time.time()
         Convertedproj = hct2ct(Np, Nr, linear_step, pixel_size, inputpath, mispixels, k1, corrpixelsv)
