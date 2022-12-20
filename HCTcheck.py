@@ -19,8 +19,7 @@ def main():
     parser.add_argument('-inputpath', type=str, default='tomo/', help='input folder path: HCT projections')
     parser.add_argument('-outputpath', type=str, default='tomo-converted/', help='output folder path: virtual CT projections')
     parser.add_argument('-mispixels', type=int, default=18, help='allow to maunally correct the mispixels horizontally, uint of pixel')
-    parser.add_argument('-corrpixelsv',   type=int, default=20, help='corret the white line (due to white edge of HCT projection); if there are white lines present, change the number bigger or smaller, uint of pixel')
-    parser.add_argument('-k1',  type=int, default=10, help='test projection index of virtual CT')
+    parser.add_argument('-corrpixelsv',   type=int, default=20, help='corret the white line due to white edge of HCT projection after phase retrieval (if no phase retieval used, the value can be 0); if there are white lines present, change the number bigger or smaller, uint of pixel')
     
     args, unparsed = parser.parse_known_args()
     if len(unparsed) > 0:
