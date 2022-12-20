@@ -7,6 +7,7 @@ import shutil
 import os, time
 from hct2ct import hct2ct
 import tifffile
+import argparse
 
 def main():
     parser = argparse.ArgumentParser(description='HCT2CT, for conversion from helical CT projection to CT projection for  parallel beam')
