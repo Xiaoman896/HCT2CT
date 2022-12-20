@@ -1,7 +1,8 @@
-# helical converter development - version1.1: it is the HCT check program
+# helical converter development - version1.2: it is the HCT converter test/checking program
 # Author: Xiaoman Duan
 # Contact: xid896@usask.ca
-# Date: 2022-12-07
+# Create date: 2022-12-07
+# Last edit date: 2022-12-20
 
 import shutil
 import os, time
@@ -20,16 +21,11 @@ def main():
     parser.add_argument('-mispixels', type=int, default=18, help='allow to maunally correct the mispixels horizontally, uint of pixel')
     parser.add_argument('-corrpixelsv',   type=int, default=20, help='corret the white line (due to white edge of HCT projection); if there are white lines present, change the number bigger or smaller, uint of pixel')
     parser.add_argument('-k1',  type=int, default=10, help='test projection index of virtual CT')
-    parser.add_argument('-gpus',  type=str, default="0", help='list of visiable GPUs')
     
     args, unparsed = parser.parse_known_args()
     if len(unparsed) > 0:
         print('Unrecognized argument(s): \n%s \nProgram exiting ... ... ' % '\n'.join(unparsed))
         exit(0)
-
-    if len(args.gpus) > 0:
-        os.environ['CUDA_VISIBLE_DEVICES'] = args.gpus
-    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' # disable printing INFO, WARNING, and ERROR
     
     if os.path.isdir(args.outputpath):
         shutil.rmtree(args.outputpath)
