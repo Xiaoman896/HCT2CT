@@ -35,7 +35,7 @@ def main():
         shutil.rmtree(args.outputpath)
     os.mkdir(args.outputpath) # to save output
     
-    for k1 in range(int(Np/2)):
+    for k1 in range(int(args.Np/2)):
         time_git_st = time.time()
         Convertedproj = hct2ct(args.Np, args.Nr, args.linear_step, args.pixel_size, args.inputpath, args.mispixels, args.k1, args.corrpixelsv)
         projname = args.outputpath + "tomo_" + str("%05d" % (k1)) + ".tif"
