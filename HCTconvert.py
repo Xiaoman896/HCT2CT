@@ -16,7 +16,7 @@ parser.add_argument('-linear_step', type=float, default=0.001, help='linear step
 parser.add_argument('-pixel_size', type=float, default=0.013, help='pixel size, uint of mm')
 parser.add_argument('-inputpath', type=str, default='tomo/', help='input folder path: HCT projections')
 parser.add_argument('-outputpath', type=str, default='tomo-converted/', help='output folder path: virtual CT projections')
-parser.add_argument('-mispixels', type=int, default=18, help='allow to maunally correct the mispixels horizontally, uint of pixel')
+parser.add_argument('-mispixels', type=int, default=18, help='allow to maunally correct the mispixels horizontally because the rotation center may be deviate from the detector center, uint of pixel')
 
 args, unparsed = parser.parse_known_args()
 if len(unparsed) > 0:
