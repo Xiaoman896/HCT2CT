@@ -7,7 +7,7 @@ import numpy as np
 import tifffile
 
 
-def hct2ct(Np, Nr, linear_step, pixel_size, path, mispixels, k1, corrpixelsv):
+def hct2ct(Np, Nr, linear_step, pixel_size, path, mispixels, k1):
     print("Generating virtual projection of --->",k1)
     ## k1 --> k
     k = np.zeros(Nr * 2, dtype = np.int16)
@@ -39,7 +39,7 @@ def hct2ct(Np, Nr, linear_step, pixel_size, path, mispixels, k1, corrpixelsv):
     I_virtal = Usedproj.min() * np.ones([Rows_virtual, np.shape(Rawproj)[1]])
 
     for kk in range (np.shape(k)[0]):
-        for i in range (corrpixelsv+1, np.shape(Rawproj)[0]-1):
+        for i in range (np.shape(Rawproj)[0]-1):
             i1 = int(i + D_travel[kk])
             if np.mod(np.floor((k[kk]) / (Np / 2)), 2) == 0:
                I_virtal[i1][:] = w[kk] * Usedproj[kk,i,:] + (1 - w[kk]) * Usedproj[kk,i + 1,:]
