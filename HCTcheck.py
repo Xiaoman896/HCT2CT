@@ -13,7 +13,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description='HCT2CT, for conversion from helical CT projection to CT projection for  parallel beam')
     parser.add_argument('-Np',  type=int, default="3000", help='number of projection per rotation (360 degrees)')
-    parser.add_argument('-Nr', type=int, default=3, help='Experiment name')
+    parser.add_argument('-Nr', type=int, default=3, help='number of rotation')
     parser.add_argument('-linear_step', type=float, default=0.001, help='linear step (i.e., traveling distance per projectio), uint of mm')
     parser.add_argument('-pixel_size',  type=float, default=0.013, help='pixel size, uint of mm')
     parser.add_argument('-inputpath', type=str, default='tomo/', help='input folder path: HCT projections')
