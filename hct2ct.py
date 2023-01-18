@@ -2,6 +2,7 @@
 # Author: Xiaoman Duan
 # Contact: xid896@usask.ca
 # Date: 2022-12-07
+# Latest revised  date: 2023-01-18
 
 import numpy as np
 import tifffile
