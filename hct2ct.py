@@ -15,23 +15,11 @@ def hct2ct(Np, Nr, linear_step, pixel_size, path, mispixels, k1):
         k[i] = k1 + i * Np / 2
     ## Read HCT projections
     Usedproj =  []
-    for i in range (Nr * 2):
-        if k[i] < 10:
-            Rawproj = tifffile.TiffFile(path + 'proj_0000' + str(k[i]) + '.tif').asarray()
-            Rawproj = np.flipud(Rawproj)
-        elif k[i] < 100:
-            Rawproj = tifffile.TiffFile(path + 'proj_000' + str(k[i]) + '.tif').asarray()
-            Rawproj = np.flipud(Rawproj)
-        elif k[i] < 1000:
-            Rawproj = tifffile.TiffFile(path + 'proj_00' + str(k[i]) + '.tif').asarray()
-            Rawproj= np.flipud(Rawproj)
-        elif k[i] < 10000:
-            Rawproj = tifffile.TiffFile(path + 'proj_0' + str(k[i]) + '.tif').asarray()
-            Rawproj = np.flipud(Rawproj)
-        else:
-            Rawproj = tifffile.TiffFile(path + 'proj_' + str(k[i]) + '.tif').asarray()
-            Rawproj = np.flipud(Rawproj)
-        Usedproj.append(Rawproj)
+    for i in range (Nr*2):
+        Rawproj = tifffile.Tifffile (os.path. join(path, imprefix+ str(k[i]).zfill(imzeropad)+".tif)).asarray()
+        Rawproj = np.flipud(Rawproj)
+        Usedproj.append (Rawproj)
+
     Usedproj = np.array(Usedproj)
     D_travel = np.floor(k * linear_step / pixel_size) ## unit of pixels
     w = k * linear_step / pixel_size - D_travel
