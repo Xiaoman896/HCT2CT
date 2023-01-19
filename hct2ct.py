@@ -17,7 +17,7 @@ def hct2ct(Np, Nr, linear_step, pixel_size, path, mispixels, k1):
     ## Read HCT projections
     Usedproj =  []
     for i in range (Nr*2):
-        Rawproj = tifffile.Tifffile (os.path. join(path, imprefix+ str(k[i]).zfill(imzeropad)+".tif)).asarray()
+        Rawproj = tifffile.Tifffile (os.path. join(path, imprefix+ str(k[i]).zfill(imzeropad)+".tif")).asarray()
         Rawproj = np.flipud(Rawproj)
         Usedproj.append (Rawproj)
 
